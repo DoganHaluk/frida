@@ -23,7 +23,7 @@ class IndexController {
                 "  </head>" +
                 "  <body>" +
                 "    <h1>Frituur Frida</h1>"
-                + openOfGesloten +
+                    + openOfGesloten +
                 "  </body>" +
                 "</html>";
     }
