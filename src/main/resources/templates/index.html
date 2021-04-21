@@ -7,7 +7,10 @@
     <link rel="stylesheet" href="css/frida.css">
 </head>
 <body>
-    <h1>Frituur Frida</h1>
-    <h3>We zijn vandaag <span th:text="${dag}"></span></h3>
+<h1>Frituur Frida</h1>
+<h3>We zijn vandaag <span th:text="${dag}"></span></h3>
+<h2>Adres</h2>
+<div th:object="${zaakAdres}" th:text="|*{straat} *{huisNr}|"></div>
+<div th:object="${zaakAdres.gemeente}" th:text="|*{postCode} *{naam}|"></div>
 </body>
 </html>
