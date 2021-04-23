@@ -20,7 +20,8 @@
     <tr th:each="saus:${sauzen}" th:object="${saus}">
         <td th:text="*{id}"></td>
         <td th:text="*{naam}"></td>
-        <td th:text="*{ingredienten}"></td>
+        <td th:each="ingredient:*{ingredienten}"
+            th:text="${ingredient}"></td>
     </tr>
     </tbody>
 </table>
