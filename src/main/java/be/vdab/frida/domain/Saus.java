@@ -1,18 +1,18 @@
 package be.vdab.frida.domain;
 
 public class Saus {
-    private final long nummer;
+    private final long id;
     private final String naam;
     private final String[] ingredienten;
 
-    public Saus(long nummer, String naam, String[] ingredienten) {
-        this.nummer = nummer;
+    public Saus(long id, String naam, String[] ingredienten) {
+        this.id = id;
         this.naam = naam;
         this.ingredienten = ingredienten;
     }
 
-    public long getNummer() {
-        return nummer;
+    public long getId() {
+        return id;
     }
 
     public String getNaam() {

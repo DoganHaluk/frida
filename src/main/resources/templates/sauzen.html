@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="nl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sauzen</title>
+    <link rel="icon" href="images/frida.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/frida.css">
+</head>
+<body>
+<h1>Sauzen</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Naam</th>
+        <th>Ingredienten</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="saus:${sauzen}" th:object="${saus}">
+        <td th:text="*{id}"></td>
+        <td th:text="*{naam}"></td>
+        <td th:text="*{ingredienten}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
