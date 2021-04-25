@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Frituur Frida</title>
-    <link rel="icon" href="images/frida.ico" type="image/x-icon">
-    <link rel="stylesheet" href="css/frida.css">
+    <link rel="icon" th:href="@{/images/frida.ico}" type="image/x-icon">
+    <link rel="stylesheet" th:href="@{/css/frida.css}">
 </head>
 <body>
 <h1>Frituur Frida</h1>
-<h3>We zijn vandaag <span th:text="${dag}"></span></h3>
+<h3>We zijn vandaag <th:block th:text="${dag}"></th:block></h3>
 <h2>Adres</h2>
 <div th:object="${zaakAdres}" th:text="|*{straat} *{huisNr}|"></div>
 <div th:object="${zaakAdres.gemeente}" th:text="|*{postCode} *{naam}|"></div>
