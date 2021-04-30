@@ -3,8 +3,9 @@
 <head th:replace="fragments::head(title='Taal')"></head>
 <body>
 <nav th:replace="fragments::menu"></nav>
-<h1>Je taal is
-    <th:block th:text="${taal} ? ${taal} : 'onbekend'"></th:block>
-</h1>
+<h2>Je spreekt
+    <th:block th:text="${taal}"></th:block>
+    Nederlands
+</h2>
 </body>
 </html>

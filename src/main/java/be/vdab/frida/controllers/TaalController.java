@@ -5,19 +5,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.thymeleaf.standard.processor.StandardAltTitleTagProcessor;
 
 import java.util.Arrays;
 
 @Controller
 @RequestMapping("talen")
 class TaalController {
-    private static final String[] TALEN ={"nl","en"};
-
+    String geen="geen";
     @GetMapping
     public ModelAndView talen(@RequestHeader("Accept-Language") String acceptLanguage){
         var modelAndView = new ModelAndView("talen");
-        Arrays.stream(TALEN).filter(taal -> acceptLanguage.contains(taal))
-                .findFirst().ifPresent(taal ->modelAndView.addObject("taal", taal));
+        if(!acceptLanguage.contains("nl")) {
+            modelAndView.addObject("taal", geen);
+        }
         return modelAndView;
     }
 }
