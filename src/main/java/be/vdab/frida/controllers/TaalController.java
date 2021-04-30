@@ -12,13 +12,9 @@ import java.util.Arrays;
 @Controller
 @RequestMapping("talen")
 class TaalController {
-    String geen="geen";
+
     @GetMapping
-    public ModelAndView talen(@RequestHeader("Accept-Language") String acceptLanguage){
-        var modelAndView = new ModelAndView("talen");
-        if(!acceptLanguage.contains("nl")) {
-            modelAndView.addObject("taal", geen);
-        }
-        return modelAndView;
+    public ModelAndView nederlands(@RequestHeader("Accept-Language") String acceptLanguage){
+        return new ModelAndView("talen", "nederlands", acceptLanguage.startsWith("nl"));
     }
 }

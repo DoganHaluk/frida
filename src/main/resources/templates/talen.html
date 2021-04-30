@@ -4,8 +4,8 @@
 <body>
 <nav th:replace="fragments::menu"></nav>
 <h2>Je spreekt
-    <th:block th:text="${taal}"></th:block>
-    Nederlands
+    <th:block th:if="not ${nederlands}">geen</th:block>
+    Nederlands.
 </h2>
 </body>
 </html>
