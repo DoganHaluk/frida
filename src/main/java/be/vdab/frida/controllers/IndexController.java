@@ -18,16 +18,11 @@ import java.util.Optional;
 @RequestMapping("/")
 class IndexController {
     @GetMapping
-    public ModelAndView index() {
+    public ModelAndView index(@CookieValue Optional<Integer> aantalBezoeken, HttpServletResponse response) {
         var openOfGesloten = LocalDate.now().getDayOfWeek() == DayOfWeek.MONDAY ? "gesloten" : "open";
         var modelAndView = new ModelAndView("index", "dag", openOfGesloten);
         modelAndView.addObject("zaakAdres", new Adres("Waaslandstraat", "51", new Gemeente("Hoboken", 2660)));
-        return modelAndView;
-    }
 
-    @GetMapping
-    public ModelAndView index(@CookieValue Optional<Integer> aantalBezoeken, HttpServletResponse response) {
-        var modelAndView = new ModelAndView("index");
         var nieuwAantalBezoeken = aantalBezoeken.orElse(0) + 1;
         var cookie = new Cookie("aantalBezoeken", String.valueOf(nieuwAantalBezoeken));
         cookie.setMaxAge(31_536_000);
