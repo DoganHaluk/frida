@@ -7,12 +7,13 @@
 <h3>We zijn vandaag
     <th:block th:text="${dag}"></th:block>
 </h3>
-<h2>Adres</h2>
-<div th:object="${zaakAdres}" th:text="|*{straat} *{huisNr}|"></div>
-<div th:object="${zaakAdres.gemeente}" th:text="|*{postCode} *{naam}|"></div>
 <div>Je bezoekt ons voor de
     <th:block th:text="${aantalBezoeken}"></th:block>
     ° keer.
 </div>
+<h2>Adres</h2>
+<div th:object="${zaakAdres}" th:text="|*{straat} *{huisNr}|"></div>
+<div th:object="${zaakAdres.gemeente}" th:text="|*{postCode} *{naam}|"></div>
+
 </body>
 </html>
