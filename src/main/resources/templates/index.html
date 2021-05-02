@@ -10,5 +10,9 @@
 <h2>Adres</h2>
 <div th:object="${zaakAdres}" th:text="|*{straat} *{huisNr}|"></div>
 <div th:object="${zaakAdres.gemeente}" th:text="|*{postCode} *{naam}|"></div>
+<div>Je bezoekt ons voor de
+    <th:block th:text="${aantalBezoeken}"></th:block>
+    ° keer.
+</div>
 </body>
 </html>
