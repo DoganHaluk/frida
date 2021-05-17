@@ -14,14 +14,14 @@ import java.util.stream.Collectors;
 
 @Component
 public class CSVSausRepository implements SausRepository {
-    private static final Path PAD = Paths.get("/data/sauzen.csv");
+    private static final Path PAD = Paths.get("data/sauzen.csv");
 
     @Override
     public List<Saus> findAll() {
         try {
             return Files.lines(PAD).map(this::maakSaus).collect(Collectors.toList());
         } catch (IOException ex) {
-            throw new SausRepositoryException("Faut bij lezen" + PAD);
+            throw new SausRepositoryException("Faut bij lezen " + PAD);
         }
     }
 
