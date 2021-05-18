@@ -30,7 +30,8 @@ class SausController {
     @GetMapping("{id}")
     public ModelAndView saus(@PathVariable long id) {
         var modelAndView = new ModelAndView("saus");
-        sausService.findById(id).ifPresent(saus -> modelAndView.addObject(saus));
+        sausService.findById(id)
+                .ifPresent(saus -> modelAndView.addObject(saus));
         return modelAndView;
     }
 

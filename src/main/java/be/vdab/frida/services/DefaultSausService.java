@@ -23,14 +23,16 @@ public class DefaultSausService implements SausService {
 
     @Override
     public List<Saus> findByNaamBegintMet(char letter) {
-        return sausRepository.findAll().stream()
+        return sausRepository.findAll()
+                .stream()
                 .filter(saus -> saus.getNaam().charAt(0) == letter)
                 .collect(Collectors.toList());
     }
 
     @Override
     public Optional<Saus> findById(long id) {
-        return sausRepository.findAll().stream()
+        return sausRepository.findAll()
+                .stream()
                 .filter(saus -> saus.getId() == id)
                 .findFirst();
     }

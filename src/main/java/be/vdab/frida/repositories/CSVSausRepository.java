@@ -19,7 +19,9 @@ public class CSVSausRepository implements SausRepository {
     @Override
     public List<Saus> findAll() {
         try {
-            return Files.lines(PAD).map(this::maakSaus).collect(Collectors.toList());
+            return Files.lines(PAD)
+                    .map(this::maakSaus)
+                    .collect(Collectors.toList());
         } catch (IOException ex) {
             throw new SausRepositoryException("Faut bij lezen " + PAD);
         }
