@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 
 @Component
 @Qualifier("properties")
-class PropertiesSausRepository implements SausRepository{
+class PropertiesSausRepository implements SausRepository {
     private final Path pad;
 
     PropertiesSausRepository(@Value("${propertiesSausenPad}") Path pad) {
