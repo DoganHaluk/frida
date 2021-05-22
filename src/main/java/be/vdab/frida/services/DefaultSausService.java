@@ -2,6 +2,7 @@ package be.vdab.frida.services;
 
 import be.vdab.frida.domain.Saus;
 import be.vdab.frida.repositories.SausRepository;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,7 +13,7 @@ import java.util.stream.Collectors;
 public class DefaultSausService implements SausService {
     private final SausRepository sausRepository;
 
-    public DefaultSausService(SausRepository sausRepository) {
+    public DefaultSausService(@Qualifier("CSV") SausRepository sausRepository) {
         this.sausRepository = sausRepository;
     }
 
