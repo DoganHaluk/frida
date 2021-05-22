@@ -36,7 +36,7 @@ public class PropertiesSausRepository implements SausRepository{
         }
         try {
             var naamEnIngredienten = onderdelen[1].split(",");
-            var ingredienten = Arrays.copyOfRange(onderdelen, 1, naamEnIngredienten.length);
+            var ingredienten = Arrays.copyOfRange(naamEnIngredienten, 1, naamEnIngredienten.length);
             return new Saus(Long.parseLong(onderdelen[0]), naamEnIngredienten[0], ingredienten);
         } catch (NumberFormatException ex) {
             throw new SausRepositoryException(PAD + ":" + regel + ": verkeerde id");
