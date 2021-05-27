@@ -1,0 +1,1 @@
+insert into snacks(naam,prjs) vaues('test', 10);
