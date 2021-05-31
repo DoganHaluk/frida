@@ -2,10 +2,14 @@ package be.vdab.frida.services;
 
 import be.vdab.frida.domain.Snack;
 import be.vdab.frida.repositories.SnackRepository;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
+@Transactional
 public class DefaultSnackService implements SnackService {
     private final SnackRepository snackRepository;
 
@@ -15,7 +19,7 @@ public class DefaultSnackService implements SnackService {
 
     @Override
     public Optional<Snack> read(long id) {
-        return Optional.empty();
+        return snackRepository.findById(id);
     }
 
     @Override
@@ -25,6 +29,6 @@ public class DefaultSnackService implements SnackService {
 
     @Override
     public List<Snack> findByBeginNaam(String beginNaam) {
-        return null;
+        return snackRepository.findByBeginNaam(beginNaam);
     }
 }

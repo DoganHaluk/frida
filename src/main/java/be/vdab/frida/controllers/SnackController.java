@@ -13,21 +13,8 @@ class SnackController {
     private final char[] alfabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
     private final SnackService snackService;
 
-
     SnackController(SnackService snackService) {
         this.snackService = snackService;
-    }
-    @GetMapping
-    public ModelAndView snacks() {
-        return new ModelAndView("snacks", "snacks", snackService.findAll());
-    }
-
-    @GetMapping("{id}")
-    public ModelAndView snack(@PathVariable long id) {
-        var modelAndView = new ModelAndView("snack");
-        snackService.findById(id)
-                .ifPresent(snack -> modelAndView.addObject(snack));
-        return modelAndView;
     }
 
     @GetMapping("alfabet")
@@ -35,8 +22,8 @@ class SnackController {
         return new ModelAndView("sausAlfabet", "alfabet", alfabet);
     }
 
-    @GetMapping("alfabet/{letter}")
-    public ModelAndView sauzenBeginnendMet(@PathVariable char letter) {
+    @GetMapping("alfabet/{beginNaam}")
+    public ModelAndView sauzenBeginnendMet(@PathVariable String beginNaam) {
         return new ModelAndView("sausAlfabet", "alfabet", alfabet)
                 .addObject("sauzen", snackService.findByBeginNaam(beginNaam));
     }
