@@ -18,6 +18,7 @@ public class DefaultSnackService implements SnackService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Optional<Snack> read(long id) {
         return snackRepository.findById(id);
     }
@@ -28,6 +29,7 @@ public class DefaultSnackService implements SnackService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Snack> findByBeginNaam(String beginNaam) {
         return snackRepository.findByBeginNaam(beginNaam);
     }

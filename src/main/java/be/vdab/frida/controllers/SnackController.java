@@ -19,13 +19,13 @@ class SnackController {
 
     @GetMapping("alfabet")
     public ModelAndView alfabet() {
-        return new ModelAndView("sausAlfabet", "alfabet", alfabet);
+        return new ModelAndView("snackAlfabet", "alfabet", alfabet);
     }
 
-    @GetMapping("alfabet/{beginNaam}")
-    public ModelAndView sauzenBeginnendMet(@PathVariable String beginNaam) {
-        return new ModelAndView("sausAlfabet", "alfabet", alfabet)
-                .addObject("sauzen", snackService.findByBeginNaam(beginNaam));
+    @GetMapping("alfabet/{letter}")
+    public ModelAndView findByBeginletter(@PathVariable char letter) {
+        return new ModelAndView("snackAlfabet", "alfabet", alfabet)
+                .addObject("snacks", snackService.findByBeginNaam(String.valueOf(letter)));
     }
 }
 
