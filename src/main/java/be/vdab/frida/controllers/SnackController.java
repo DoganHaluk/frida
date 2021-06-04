@@ -32,12 +32,12 @@ class SnackController {
 
     @GetMapping("zoeksnack/form")
     public ModelAndView beginNaamForm() {
-        return new ModelAndView("beginNaam").addObject(new BeginNaamForm(""));
+        return new ModelAndView("snackZoek").addObject(new BeginNaamForm(""));
     }
 
     @GetMapping("zoeksnack")
     public ModelAndView beginNaam(BeginNaamForm form, Errors errors) {
-        var modelAndView = new ModelAndView("beginNaam");
+        var modelAndView = new ModelAndView("snackZoek");
         if (errors.hasErrors()){
             return modelAndView;
         }
