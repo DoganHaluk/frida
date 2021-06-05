@@ -38,11 +38,10 @@ class SnackController {
     @GetMapping("zoeksnack")
     public ModelAndView beginNaam(BeginNaamForm form, Errors errors) {
         var modelAndView = new ModelAndView("snackZoek");
-        if (errors.hasErrors()){
+        if (errors.hasErrors()) {
             return modelAndView;
         }
-        return modelAndView.addObject("snacks",
-                snackService.findByBeginNaam(form.getBeginNaam()));
+        return modelAndView.addObject("snacks", snackService.findByBeginNaam(form.getBeginNaam()));
     }
 }
 
