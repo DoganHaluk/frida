@@ -5,7 +5,7 @@
 <nav th:replace="fragments::menu"></nav>
 <h1>Zoek snack</h1>
 <form th:object="${beginNaamForm}" method="get" th:action="@{/snacks/zoeksnack}">
-    <label>Begin naam:<span th:errors="*{beginNaam}"></span><input th:field="*{beginNaam}" autofocus></label>
+    <label>Begin naam:<span th:errors="*{beginNaam}"></span><input th:field="*{beginNaam}" autofocus pattern="[A-Za-z]" required></label>
     <button>Zoeken</button>
 </form>
 <ul th:if="${snacks}">
