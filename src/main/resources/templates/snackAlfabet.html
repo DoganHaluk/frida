@@ -15,7 +15,7 @@
     </h2>
     <ul>
         <li th:each="snack:${snacks}">
-            <a th:href="@{/snack/{snack}(snack=${snack.naam})}" th:text="${snack.naam}"></a>
+            <a th:href="@{/snacks/{id}/wijzigen/form(id=${snack.id})}" th:text="${snack.naam}"></a>
         </li>
     </ul>
 </th:block>
