@@ -51,7 +51,7 @@ class SnackController {
     }
 
     @GetMapping("{id}/wijzigen/form")
-    public ModelAndView wijzigsnackForm(@PathVariable long id) {
+    public ModelAndView wijzigSnackForm(@PathVariable long id) {
         var modelAndView = new ModelAndView("wijzigSnack");
         snackService.read(id).ifPresent(snack -> modelAndView.addObject(snack));
         return modelAndView;
