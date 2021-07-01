@@ -28,7 +28,7 @@ public class ZoekDeFriet implements Serializable {
     public void reset() {
         var indexMetFriet = ThreadLocalRandom.current().nextInt(AANTAL_DEUREN);
         for (var index = 0; index != AANTAL_DEUREN; index++) {
-            deuren[index] = new Deur(index, indexMetFriet == indexMetFriet);
+            deuren[index] = new Deur(index, index == indexMetFriet);
         }
     }
 }
