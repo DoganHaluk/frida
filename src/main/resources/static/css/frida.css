@@ -124,3 +124,7 @@ input{
     margin-bottom: 1em;
     font-size: 1.1em;
 }
+
+.fullwidth {
+    width: 100%;
+}

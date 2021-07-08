@@ -7,9 +7,7 @@
 <div th:if="*{verloren}">U bent verloren, de saus was
     <th:block th:text="*{saus}"></th:block>
 </div>
-<div th:if="*{gewonnen}">U bent gewonnen, de saus was
-    <th:block th:text="*{saus}"></th:block>
-</div>
+<div th:if="*{gewonnen}">U bent gewonnen, u kan het spel opnieuw starten.</div>
 <div th:if="not *{verloren} and not *{gewonnen}">Te raden saus:
     <th:block th:text="*{puntjes}"></th:block>
     <div>Gebruikte letters:

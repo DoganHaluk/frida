@@ -13,7 +13,7 @@ public class RaadDeSaus implements Serializable {
     private static final long serialVersionUID = 1L;
     private static final int MAX_VERKEERDE_POGINGEN = 10;
     private String saus;
-    private StringBuilder puntjes;
+    private StringBuilder puntjes = new StringBuilder();
     private int verkeerdePogingen;
     private Set<Character> letters = new TreeSet<>();
 
