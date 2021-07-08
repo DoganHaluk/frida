@@ -12,6 +12,9 @@
 </div>
 <div th:if="not *{verloren} and not *{gewonnen}">Te raden saus:
     <th:block th:text="*{puntjes}"></th:block>
+    <div>Gebruikte letters:
+        <th:block th:text="*{letters}"></th:block>
+    </div>
     <form th:object="${sausRadenForm}" th:action="@{/sauzen/raden}" method="post">
         <label>Letter: <span th:errors="*{letter}"></span>
             <input th:field="*{letter}" autofocus required size="1" maxlength="1">
@@ -22,6 +25,7 @@
 <form th:action="@{/sauzen/raden/nieuwspel}" method="post">
     <button>Nieuw spel</button>
 </form>
-<img th:src="@{/images/{verkeerdePogingen}.png (verkeerdePogingen=*{verkeerdePogingen})}" th:alt="|*{verkeerdePogingen} verkeerde pogingen|">
+<img th:src="@{/images/{verkeerdePogingen}.png (verkeerdePogingen=*{verkeerdePogingen})}"
+     th:alt="|*{verkeerdePogingen} verkeerde pogingen|">
 </body>
 </html>

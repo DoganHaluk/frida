@@ -4,6 +4,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;
 
 import java.io.Serializable;
+import java.util.Set;
+import java.util.TreeSet;
 
 @Component
 @SessionScope
@@ -13,10 +15,12 @@ public class RaadDeSaus implements Serializable {
     private String saus;
     private StringBuilder puntjes;
     private int verkeerdePogingen;
+    private Set<Character> letters = new TreeSet<>();
 
     public void reset(String saus) {
         this.saus = saus;
-        puntjes = new StringBuilder(".".repeat(saus.length()));
+        puntjes = new StringBuilder("-".repeat(saus.length()));
+        letters = new TreeSet<>();
         verkeerdePogingen = 0;
     }
 
@@ -45,10 +49,18 @@ public class RaadDeSaus implements Serializable {
     }
 
     public boolean isGewonnen() {
-        return puntjes.indexOf(".") == -1;
+        return puntjes.indexOf("-") == -1;
     }
 
     public boolean isVerloren() {
         return verkeerdePogingen == MAX_VERKEERDE_POGINGEN;
+    }
+
+    public void voegLetterToe(char letter) {
+        letters.add(letter);
+    }
+
+    public Set<Character> getLetters() {
+        return letters;
     }
 }

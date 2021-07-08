@@ -67,6 +67,7 @@ class SausController {
             return new ModelAndView("sausRaden").addObject(raadDeSaus);
         }
         raadDeSaus.gok(form.getLetter());
+        raadDeSaus.voegLetterToe(form.getLetter());
         return new ModelAndView("redirect:/sauzen/raden/volgendegok");
     }
 
