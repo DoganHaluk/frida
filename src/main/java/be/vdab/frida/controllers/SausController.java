@@ -57,27 +57,22 @@ class SausController {
 
     @GetMapping("raden")
     public ModelAndView radenForm() {
-        raadDeSaus.reset(randomSaus());
         return new ModelAndView("sausRaden").addObject(raadDeSaus).addObject(new SausRadenForm(null));
     }
 
-    @PostMapping("raden")
+    @PostMapping("raden/volgendegok")
     public ModelAndView raden(@Valid SausRadenForm form, Errors errors) {
         if (errors.hasErrors()) {
             return new ModelAndView("sausRaden").addObject(raadDeSaus);
         }
         raadDeSaus.gok(form.getLetter());
         raadDeSaus.voegLetterToe(form.getLetter());
-        return new ModelAndView("redirect:/sauzen/raden/volgendegok");
-    }
-
-    @GetMapping("raden/volgendegok")
-    public ModelAndView volgendeGok() {
-        return new ModelAndView("sausRaden").addObject(raadDeSaus).addObject(new SausRadenForm(null));
+        return new ModelAndView("redirect:/sauzen/raden");
     }
 
     @PostMapping("raden/nieuwspel")
     public String radenNieuwSpel() {
+        raadDeSaus.reset(randomSaus());
         return "redirect:/sauzen/raden";
     }
 }

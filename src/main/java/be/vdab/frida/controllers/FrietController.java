@@ -20,15 +20,15 @@ class FrietController {
         return new ModelAndView("zoekDeFriet").addObject(zoekDeFriet);
     }
 
-    @PostMapping("zoeken/nieuwspel")
-    public String nieuwSpel(){
-        zoekDeFriet.reset();
-        return "redirect:/frieten/zoeken";
-    }
-
     @PostMapping("zoeken/opendeur")
     public String openDeur(int index){
         zoekDeFriet.openDeur(index);
+        return "redirect:/frieten/zoeken";
+    }
+
+    @PostMapping("zoeken/nieuwspel")
+    public String nieuwSpel(){
+        zoekDeFriet.reset();
         return "redirect:/frieten/zoeken";
     }
 }

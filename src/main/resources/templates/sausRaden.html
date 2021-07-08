@@ -15,7 +15,7 @@
     <div>Gebruikte letters:
         <th:block th:text="*{letters}"></th:block>
     </div>
-    <form th:object="${sausRadenForm}" th:action="@{/sauzen/raden}" method="post">
+    <form th:object="${sausRadenForm}" th:action="@{/sauzen/raden/volgendegok}" method="post">
         <label>Letter: <span th:errors="*{letter}"></span>
             <input th:field="*{letter}" autofocus required size="1" maxlength="1">
         </label>
