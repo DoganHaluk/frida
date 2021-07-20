@@ -1,16 +1,25 @@
-package be.vdab.frida.forms;
+package be.vdab.frida.domain;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
-public class GastenboekForm {
+public class GastenBoekEntry {
     private final long id;
+    @NotBlank
     private final String naam;
-    private final LocalDate datum= LocalDate.now();
+    @NotNull
+    @DateTimeFormat(style = "S-")
+    private final LocalDate datum;
+    @NotBlank
     private final String bericht;
 
-    public GastenboekForm(long id, String naam, String bericht) {
+    public GastenBoekEntry(long id, String naam, LocalDate datum, String bericht) {
         this.id = id;
         this.naam = naam;
+        this.datum = datum;
         this.bericht = bericht;
     }
 
