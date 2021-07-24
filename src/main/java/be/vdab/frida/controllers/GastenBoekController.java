@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("gastenboek")
@@ -37,5 +38,11 @@ public class GastenBoekController {
         }
         gastenBoekService.create(form);
         return new ModelAndView("redirect:/gastenboek");
+    }
+
+    @PostMapping("verwijderen")
+    public String delete(Optional<Long[]> id) {
+        id.ifPresent(ids -> gastenBoekService.delete(ids));
+        return "redirect:/gastenboek";
     }
 }

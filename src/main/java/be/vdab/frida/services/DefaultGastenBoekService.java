@@ -26,4 +26,9 @@ class DefaultGastenBoekService implements GastenBoekService {
     public List<GastenBoekEntry> findAll() {
         return gastenBoekRepository.findAll();
     }
+
+    @Override
+    public void delete(Long[] ids) {
+        gastenBoekRepository.delete(ids);
+    }
 }

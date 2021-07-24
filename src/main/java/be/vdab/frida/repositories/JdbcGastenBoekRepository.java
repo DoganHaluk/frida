@@ -29,13 +29,12 @@ class JdbcGastenBoekRepository implements GastenBoekRepository {
 
     @Override
     public List<GastenBoekEntry> findAll() {
-        var sql = "select id,naam,datum,bericht from gastenboek order by datum desc";
+        var sql = "SELECT id, naam, datum, bericht FROM gastenboek ORDER BY datum DESC";
         return template.query(sql, entryRowMapper);
     }
 
     @Override
     public void delete(Long[] ids) {
-        // de JdbcTemplate update method verwacht een Long[] array, geen long[] array
         if (ids.length != 0) {
             var sql = "delete from gastenboek where id in (" + "?,".repeat(ids.length - 1) + "?)";
             template.update(sql, ids);
