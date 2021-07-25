@@ -36,7 +36,7 @@ class JdbcGastenBoekRepository implements GastenBoekRepository {
     @Override
     public void delete(Long[] ids) {
         if (ids.length != 0) {
-            var sql = "delete from gastenboek where id in (" + "?,".repeat(ids.length - 1) + "?)";
+            var sql = "DELETE FROM gastenboek WHERE id IN (" + "?,".repeat(ids.length - 1) + "?)";
             template.update(sql, ids);
         }
     }
